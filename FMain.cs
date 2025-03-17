@@ -348,7 +348,10 @@ namespace Household
 				row["id"] = category.Id;
 				row["name"] = category.Name;
 				row["balance"] = totals_per_category[category_id] / 100.00M;
-				row["percentage"] = Math.Abs(totals_per_category[category_id] / income);
+
+				if (income != 0)
+					row["percentage"] = Math.Abs(totals_per_category[category_id] / income);
+				
 				row["color"] = category.Color;
 				row["use_color"] = category.UseColor;
 				row["use_percentage"] = category.UsePercentage;
@@ -579,6 +582,11 @@ namespace Household
 
 			if (e.ColumnIndex == 3 && e.RowIndex == 1)
 			{
+				if (e.Value is DBNull)
+				{
+					e.Value = 0.0;
+				}
+
 				Color color = (double)e.Value > 0.5 ? Color.LightPink : Color.LightGreen;
 
 				e.CellStyle.BackColor = color;
