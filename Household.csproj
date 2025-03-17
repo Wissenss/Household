@@ -7,6 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>Resources\Fatcow-Farm-Fresh-Entity.ico</ApplicationIcon>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Version>$(VersionPrefix)0.0.0.1-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
